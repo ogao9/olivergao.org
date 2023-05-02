@@ -1,27 +1,54 @@
-import Image from "next/image";
+import About from "@/components/About";
+import Updates from "@/components/Updates";
+import Work from "@/components/Work";
+import Blog from "@/components/Blog";
+import client from "@/lib/sanityClient";
+import groq from "groq";
+import { queryDB } from "@/lib/notion";
 
-export default function Home() {
+export default function Home({ projects, posts }) {
 	return (
-		<main className="max-w-3xl mx-auto border">
-			<h1 className="text-3xl font-bold my-16">Oliver Gao</h1>
-			<p>
-				Hi! I'm Oliver. I'm a third-year student at the University of
-				Michigan studying computer science. I'm interested in building
-				beautiful technology that people love and find incredibly
-				useful.
-			</p>
-      <p>
-				Hi! I'm Oliver. I'm a third-year student at the University of
-				Michigan studying computer science. I'm interested in building
-				beautiful technology that people love and find incredibly
-				useful.
-			</p>
-      <p>
-				Hi! I'm Oliver. I'm a third-year student at the University of
-				Michigan studying computer science. I'm interested in building
-				beautiful technology that people love and find incredibly
-				useful.
-			</p>
-		</main>
+		<>
+			<About />
+			<Updates />
+			<Work projects={projects} />
+			<Blog posts={posts} />
+		</>
 	);
+}
+
+export async function getStaticProps() {
+	const projectQuery = groq`*[_type == "Project"]{
+		title,
+		description,
+		"slug" : slug.current,
+		image,
+		date
+	}|order(date desc)`;
+
+	const postQuery = groq`*[_type == "post"]{
+		title,
+		excerpt,
+		"slug" : slug.current,
+		"category" : category->title,
+		mainImage,
+		publishedAt,
+		body[]{
+                ..., 
+                asset->{
+                ...,
+                "_key": _id
+                }
+        }
+	}|order(publishedAt desc)`
+
+	const projects = await client.fetch(projectQuery);
+	const posts =  await client.fetch(postQuery)
+
+	return {
+		props: {
+			projects,
+			posts
+		},
+	};
 }
