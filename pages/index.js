@@ -1,14 +1,18 @@
+import Head from "next/head";
 import About from "@/components/About";
 import Updates from "@/components/Updates";
 import Work from "@/components/Work";
 import Blog from "@/components/Blog";
-import client from "@/lib/sanityClient";
+import { client } from "@/lib/sanityClient";
 import groq from "groq";
-import { queryDB } from "@/lib/notion";
 
 export default function Home({ projects, posts }) {
 	return (
 		<>
+			<Head>
+				<title>Oliver Gao</title>
+				<meta property="og:title" content="Oliver Gao" key="title" />
+			</Head>
 			<About />
 			<Updates />
 			<Work projects={projects} />
@@ -23,6 +27,7 @@ export async function getStaticProps() {
 		description,
 		"slug" : slug.current,
 		image,
+		altText,
 		date
 	}|order(date desc)`;
 
@@ -32,6 +37,7 @@ export async function getStaticProps() {
 		"slug" : slug.current,
 		"category" : category->title,
 		mainImage,
+		altText,
 		publishedAt,
 		body[]{
                 ..., 
@@ -40,15 +46,15 @@ export async function getStaticProps() {
                 "_key": _id
                 }
         }
-	}|order(publishedAt desc)`
+	}|order(publishedAt desc)`;
 
 	const projects = await client.fetch(projectQuery);
-	const posts =  await client.fetch(postQuery)
+	const posts = await client.fetch(postQuery);
 
 	return {
 		props: {
 			projects,
-			posts
+			posts,
 		},
 	};
 }

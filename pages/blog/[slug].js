@@ -1,14 +1,20 @@
 import BlockContent from "@sanity/block-content-to-react";
 import groq from "groq";
-import client from "@/lib/sanityClient";
+import { client } from "@/lib/sanityClient";
 import { urlFor, prettyDate } from "../../lib/utils";
+import Head from "next/head";
 
 export default function Post({ post }) {
+	const mainAltText = post.altText ? post.altText : `Blog post cover`;
+
 	return (
 		<>
-			<div className="mt-8">
+			<Head>
+				<title>{`${post.title} | Oliver Gao`}</title>
+			</Head>
+			<article className="mt-10">
 				<section className="mb-4">
-					<h1 className="text-2xl font-bold mb-1">{post.title}</h1>
+					<h1 className="text-3xl font-bold mb-1">{post.title}</h1>
 					<p className="mb-4">
 						<span className="opacity-90 inline-block mr-2">
 							{prettyDate(post.publishedAt)}
@@ -18,18 +24,18 @@ export default function Post({ post }) {
 
 					<img
 						src={urlFor(post.mainImage).url()}
-						alt={`Main image for blog post ${post.title}`}
+						alt={mainAltText}
 						className="w-full object-cover aspect-video"
 					/>
 				</section>
 
-				<article className="prose max-w-none">
+				<section className="prose prose-slate max-w-full">
 					<BlockContent
 						blocks={post.body}
 						imageOptions={{ fit: "max" }}
 					/>
-				</article>
-			</div>
+				</section>
+			</article>
 		</>
 	);
 }
@@ -55,6 +61,7 @@ export async function getStaticProps(context) {
             "category": category->title,
             excerpt,
             mainImage,
+			altText,
             publishedAt,
             "authorName": author->name,
             "authorImage": author->image,

@@ -1,6 +1,7 @@
+import Head from "next/head";
 import groq from "groq";
 import BlockContent from "@sanity/block-content-to-react";
-import client from "@/lib/sanityClient";
+import { client } from "@/lib/sanityClient";
 import { urlFor } from "../../lib/utils";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,17 +9,19 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function SingleProjectDetails({ project }) {
+	const mainAltText = project.altText
+		? project.altText
+		: `Project details cover`;
+
 	return (
 		<>
-			{/* <MetaHead
-				title={`${project.title}`}
-				description="An overview and analysis of my project"
-			/> */}
-
-			<div className="mt-8">
+			<Head>
+				<title>{`${project.title} | Oliver Gao`}</title>
+			</Head>
+			<article className="mt-10">
 				<section>
 					<div className="mb-4">
-						<h1 className="text-2xl sm:text-3xl font-bold mb-4">
+						<h1 className="text-3xl font-bold mb-4">
 							{project.title}
 						</h1>
 
@@ -54,18 +57,18 @@ export default function SingleProjectDetails({ project }) {
 					</div>
 					<img
 						src={urlFor(project.image).url()}
-						alt={`Cover image for project: ${project.title}`}
+						alt={mainAltText}
 						className="w-full object-cover aspect-video"
 					/>
 				</section>
 
-				<article className="prose prose-slate max-w-full">
+				<section className="prose prose-slate max-w-full">
 					<BlockContent
 						blocks={project.body}
 						imageOptions={{ fit: "max" }}
 					/>
-				</article>
-			</div>
+				</section>
+			</article>
 		</>
 	);
 }
