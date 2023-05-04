@@ -7,7 +7,7 @@ export default function Header() {
 			<Link href="/">
 				<Logo/>
 			</Link>
-			<nav>
+			<nav className="hidden sm:block">
 				<ul className='flex space-x-2 text-sm sm:text-base'>
 					<li><Link href="/#updates" className="nav-link">Updates</Link></li>
 					<li><Link href="/#work" className="nav-link">Work</Link></li>
