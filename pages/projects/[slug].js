@@ -58,7 +58,7 @@ export default function SingleProjectDetails({ project }) {
 					<img
 						src={urlFor(project.image).url()}
 						alt={mainAltText}
-						className="w-full object-cover aspect-video"
+						className="w-full object-cover aspect-video border"
 					/>
 				</section>
 

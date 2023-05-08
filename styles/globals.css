@@ -20,3 +20,7 @@ body{
 		@apply text-[#196edb];
 	}
 }
+
+.prose a:hover{
+	opacity: 0.8;
+}

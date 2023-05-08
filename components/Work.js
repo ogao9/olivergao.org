@@ -30,7 +30,7 @@ function ProjectCard({ project }) {
 					<img
 						src={urlFor(project.image).url()}
 						alt={mainAltText}
-						className={`object-cover aspect-video ${
+						className={`object-cover aspect-video border ${
 							hover ? "opacity-90" : ""
 						}`}
 					/>

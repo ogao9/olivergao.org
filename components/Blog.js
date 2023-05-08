@@ -18,7 +18,7 @@ export default function Blog({ posts }) {
 
 function BlogStrip({ post }) {
 	return (
-		<div className="rounded-lg py-2 mb-1 hover:bg-gray-100">
+		<div className="rounded py-2 mb-1 hover:bg-gray-100">
 			<h3 className="text-lg font-bold">{post.title}</h3>
 			<p>
 				<span className="opacity-80 inline-block mr-2">{prettyDate(post.publishedAt)}</span>

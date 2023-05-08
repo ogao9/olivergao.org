@@ -21,7 +21,7 @@ export default function Header() {
 function Logo() {
 	return (
 		<div className='flex items-center'>
-			<Image src='/logo.png' alt="Logo" width={32} height={32} className='mr-2'/>
+			<Image src='/logo.png' alt="Logo" width={32} height={32} priority className='mr-2'/>
 			<h1 className="text-2xl sm:text-3xl font-semibold">Oliver Gao</h1>
 		</div>
 	)
