@@ -62,7 +62,7 @@ export default function SingleProjectDetails({ project }) {
 					/>
 				</section>
 
-				<section className="prose prose-slate max-w-full">
+				<section className="prose prose-stone max-w-full">
 					<BlockContent
 						blocks={project.body}
 						imageOptions={{ fit: "max" }}

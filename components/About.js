@@ -1,18 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import BlockContent from "@sanity/block-content-to-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf, faSquareEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-export default function About() {
+export default function About({ about }) {
 	return (
-		<section className="my-6">
-			<p className="mb-6">
-				Hi! I&#39;m Oliver. I&#39;m a third-year student at the{" "}
-				<b>University of Michigan</b> studying computer science. I&#39;m
-				interested in building beautiful technology that people love and
-				find incredibly useful in their daily lives.
-			</p>
+		<section id="about" className="my-6">
+			<BlockContent blocks={about.p1}/>
 			<div className="flex mb-6 items-center">
 				<Image
 					src="/oliver.jpg"
@@ -80,41 +76,8 @@ export default function About() {
 					</li>
 				</ul>
 			</div>
-			<p className="mb-6">
-				Currently, I&#39;m a full stack developer building{" "}
-				<a href="https://pit-kn.io" className="about-link special-link">
-					Braid
-				</a>
-				, a platform to connect BIPOC entrepreneurs in the field of
-				public interest technology. This past summer, I worked on Snagit
-				as a software engineer intern at{" "}
-				<a
-					href="https://www.techsmith.com/"
-					className="about-link special-link"
-				>
-					TechSmith
-				</a>
-				.
-			</p>
-			<p>
-				Besides tech related things, I enjoy{" "}
-				<Link
-					href="/oliver-running.png"
-					className="about-link special-link"
-					target="_blank"
-				>
-					running
-				</Link>
-				, eating, cooking, watching YouTube videos, and playing the
-				violin in the{" "}
-				<a
-					href="https://www.michiganpops.org/"
-					className="about-link special-link"
-				>
-					Michigan Pops Orchestra
-				</a>
-				.
-			</p>
+			<BlockContent blocks={about.p2}/>
+			<BlockContent blocks={about.p3}/>
 		</section>
 	);
 }

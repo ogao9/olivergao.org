@@ -29,7 +29,7 @@ export default function Post({ post }) {
 					/>
 				</section>
 
-				<section className="prose prose-slate max-w-full">
+				<section className="prose prose-stone max-w-full">
 					<BlockContent
 						blocks={post.body}
 						imageOptions={{ fit: "max" }}
@@ -58,7 +58,6 @@ export async function getStaticProps(context) {
 	const query = groq`*[_type == "post" && slug.current == $slug][0]{
             title,
             "slug": slug.current,
-            "category": category->title,
             excerpt,
             mainImage,
 			altText,

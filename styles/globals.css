@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background: #FDFCFA;
-}
-
 @layer components{
 	.nav-link{
 		@apply inline-block rounded px-1 sm:px-2;
@@ -21,6 +17,27 @@ body{
 	}
 }
 
+body{
+    background: #FDFCFA;
+}
+
 .prose a:hover{
 	opacity: 0.8;
+}
+
+#about p{
+	margin-bottom: 1.5rem;
+}
+
+#about p a{
+	color: #196edb;
+}
+
+#about p a:hover{
+	text-decoration-line: underline;
+	text-underline-offset: 2px;
+}
+
+#updates li p{
+	display: inline;
 }
