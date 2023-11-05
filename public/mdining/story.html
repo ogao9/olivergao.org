@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Diving Deep into MDining</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					fontFamily: {
+						sans: ["Open Sans", sans - serif],
+						serif: ["Lora", "Georgia", "serif"],
+					},
+				},
+			};
+		</script>
+	</head>
+	<body>
+		<main class="max-w-3xl mx-auto text-xl leading-8 font-serif py-12 px-6">
+			<h2 class="font-semibold text-4xl mb-6">
+				Diving Deep into MDining
+			</h2>
+			<div class="text-base font-sans text-slate-700 mb-6">
+				<p>by Pranathi Dandamudi and Oliver Gao</p>
+				<p>March 2022 to November 2023</p>
+			</div>
+			<hr />
+			<img
+				src="ice_cream_horiz.jpg"
+				alt="Person holding soft serve ice cream on a cone at Mosher-Jordan dining hall"
+				class="w-full mt-4 mb-6"
+			/>
+			<p class="mb-2">Let's get started with a poem reading from Matt!</p>
+			<audio class="audio" controls>
+				<source src="matt_reading_poem.m4a" />
+			</audio>
+			<p class="my-6 italic">
+				Curly fries cure my cries <br />
+				Chicken tenders on my thighs. <br />
+				Cheesy bread is what you said <br />
+				Garlic bread is in my head. <br />
+				Through the crowds, I will plow <br />
+				Please explore our data now.
+			</p>
+			<p class="mb-6">
+				We analyzed data documenting the meal swipes of students at each
+				dining hall along with the food items that were served. Read on
+				to take a deeper dive into the dining halls through a series of
+				interactive data visualizations.
+			</p>
+			<p>
+				We found that out of all the meals, the top items served for
+				breakfast are the most similar across all dining halls. You can
+				always count on Oatmeal and Scrambled Eggs being served during
+				breakfast at all seven dining halls. The dining halls begin to
+				show some character at lunch as the top items served begin to
+				vary. South Quad and Mosher-Jordan serve Sandwiches Made to
+				Order the most. Markley and North Quad offer a steady sweet
+				treat, serving Chocolate Chunk Cookies almost every day. Bursley
+				and East Quad are on the cheese squad, regularly serving the duo
+				of Cheese Bread and Cheese Pizza.
+			</p>
+			<iframe
+				src="https://specials.michigandaily.com/2023/mdining-top-items/graphic/index.html"
+				title="description"
+				class="w-full h-[568px]"
+			></iframe>
+			<p class="my-6">
+				We know you’ve been waiting for those Chicken Tenders all week.
+				There’s a good chance your local dining hall will be serving
+				them on Friday. Don’t sleep on Twigs at
+				Oxford though. It might be small, but it can pump out Chicken
+				Tenders like nobody’s business on Fridays.
+			</p>
+			<p class="mb-6">
+				Are you vegetarian? Don’t worry, we didn’t forget about you.
+				Lucky for you, Scrambled Tofu is served everywhere on Sundays.
+			</p>
+			<p>
+				Have another item you’ve been thinking about? Use the visual
+				below to find out when and where your favorite menu item is
+				served the most.
+			</p>
+			<iframe
+				src="https://specials.michigandaily.com/2023/mdining-heatmap/graphic/index.html"
+				title="description"
+				class="w-full h-[768px]"
+			></iframe>
+			<p class="mb-4">
+				Do you want us to let you in on a little secret? If you ever
+				want to just eat a meal in peace and avoid the crowds, go to
+				South Quad, Bursley, or Mosher-Jordan anytime from 3-4 PM on a
+				weekday. Who knows? You might even have a chance at getting a
+				whole table to yourself.
+			</p>
+			<iframe
+				src="https://specials.michigandaily.com/2023/mdining-swipedata/graphic/index.html"
+				title="description"
+				class="w-full h-[500px]"
+			></iframe>
+			<p class="mt-4">
+				We hope this was useful as you embark on your dining hall
+				adventure. Bon Appetit! See you next year!
+			</p>
+		</main>
+	</body>
+</html>
