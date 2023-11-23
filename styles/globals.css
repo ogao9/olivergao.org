@@ -29,11 +29,11 @@ body{
 	margin-bottom: 1.5rem;
 }
 
-#about p a{
+#about p a, #updates p a{
 	color: #196edb;
 }
 
-#about p a:hover{
+#about p a:hover, #updates p a:hover{
 	text-decoration-line: underline;
 	text-underline-offset: 2px;
 }
